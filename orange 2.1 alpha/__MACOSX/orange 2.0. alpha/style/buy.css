@@ -1,0 +1,517 @@
+/* Основной сброс стилей */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Основные стили страницы */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #fffaf0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Контейнер */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #ffe0b2;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ff8a00;
+    font-size: 1.5rem;
+    font-weight: bold;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Навигация */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ff8a00;
+    font-weight: 600;
+    transition: color 0.3s;
+    padding: 5px 0;
+    position: relative;
+    font-size: 130%;
+}
+
+nav a:hover {
+    color: #ff5722;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff5722;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Корзина */
+.cart-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart {
+    width: 30px;
+    height: auto;
+}
+
+.cart-count {
+    background-color: #ff5722;
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+/* Основной контент */
+main {
+    flex: 1;
+    padding: 30px 0;
+}
+
+/* Секция с продуктами */
+.buy-page {
+    width: 100%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ff8a00;
+    font-size: 2rem;
+}
+
+.product-slider-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.product-slide {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.slide-title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    color: #ff8a00;
+    font-size: 1.8rem;
+    grid-column: 1 / -1; /* Занимает все колонки в grid */
+}
+
+.product-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(255, 138, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 138, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    color: #ff5722;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #ff8a00;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Стили для выбора варианта */
+.product-variant {
+    margin: 15px 0;
+    width: 100%;
+}
+
+.product-variant label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.variant-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffb74d;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.variant-select:hover {
+    border-color: #ff8a00;
+}
+
+.variant-select:focus {
+    outline: none;
+    border-color: #ff5722;
+    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 480px) {
+    .variant-select {
+        padding: 8px;
+    }
+}
+
+/* Стили для блока с ценой */
+.product-price-block { 
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.quantity-button {
+    width: 30px;
+    height: 30px;
+    background-color: #ff8a00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quantity-button:hover {
+    background-color: #ff5722;
+}
+
+.quantity-input {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ffb74d;
+    border-radius: 5px;
+}
+
+.add-to-cart {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    background-color: #e64a19;
+}
+
+/* Стили для текстового поля цены */
+.price-field {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.price-input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ffb74d;
+    border-radius: 5px;
+    background-color: #fffaf0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff5722;
+    text-align: center;
+    cursor: default;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Стили для состояния при наведении и фокусе */
+.price-input:hover,
+.price-input:focus {
+    border-color: #ff8a00;
+    background-color: #fff;
+}
+
+/* Делаем поле "некликабельным" */
+.price-input {
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Сохраняем пропорции текста */
+.price-input {
+    font-family: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+}
+
+/* Секция корзины */
+.shopping-cart-area {
+    background-color: #fff;
+    padding: 40px 0;
+    border-top: 2px solid #ffb74d;
+}
+
+.cart-empty-message {
+    text-align: center;
+    color: #666;
+}
+
+
+.cart {
+    width: 5%;
+    height: auto;
+}
+
+/* Стили для ссылки корзины */
+.cart-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ff8a00;
+    font-weight: 600;
+    gap: 5px;
+    transition: color 0.3s;
+    font-size: 130%;
+}
+
+.cart-link:hover {
+    color: #ff5722;
+}
+
+.cart-link:hover .cart {
+    opacity: 0.8;
+}
+
+.cart {
+    width: 5%;
+    height: auto;
+    transition: opacity 0.3s;
+}
+
+
+
+
+/* Подвал */
+footer {
+    background-color: #ff8a00;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 0.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.social-links img:hover {
+    opacity: 1;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .product-slide {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-slide {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+
+.info{
+    text-decoration: none;
+    color: #e64a19;
+}
+.infoblock{
+    background-color: #fff;
+    width: 70%;
+    height: auto;
+    border: #333;
+    border-radius: 20%;
+}
+
+/* Базовые стили кнопки */
+.kupi-nahuy-blyat {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff8a00; /* Основной оранжевый цвет */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(255, 138, 0, 0.2);
+}
+
+/* Состояние при наведении */
+.kupi-nahuy-blyat:hover {
+    background-color: #ff6d00; /* Более насыщенный оранжевый */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 109, 0, 0.3);
+}
+
+/* Активное состояние (при нажатии) */
+.kupi-nahuy-blyat:active {
+    background-color: #e65100; /* Темно-оранжевый */
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(230, 81, 0, 0.3);
+}
+
